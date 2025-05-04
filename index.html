@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shailesh Sidhapura | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #00f0ff;
+            --secondary: #0a1a2f;
+            --accent: #ff7b00;
+            --dark: #020a13;
+            --light: #e0f7ff;
+            --gear-color: #2a3a4a;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .tech-border {
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            position: relative;
+        }
+        
+        .tech-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), transparent, var(--primary));
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        .tech-bg {
+            background-color: rgba(10, 26, 47, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .circuit-bg {
+            background-image: 
+                radial-gradient(circle at 25px 25px, var(--primary) 1px, transparent 1px),
+                linear-gradient(to right, rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px, 25px 25px, 25px 25px;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+        }
+        
+        .accent-text {
+            color: var(--accent);
+        }
+        
+        .primary-text {
+            color: var(--primary);
+        }
+        
+        .tech-button {
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-button:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            box-shadow: 0 0 15px var(--primary);
+        }
+        
+        .tech-button::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), transparent, var(--primary));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .tech-button:hover::before {
+            opacity: 1;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(0, 240, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: progress-shine 2s infinite;
+        }
+        
+        @keyframes progress-shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .gear {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gear-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
+        .gear::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: var(--dark);
+            border-radius: 50%;
+        }
+        
+        .gear::after {
+            content: '';
+            position: absolute;
+            width: 30%;
+            height: 30%;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+        }
+        
+        .gear-tooth {
+            position: absolute;
+            width: 20%;
+            height: 10%;
+            background: var(--gear-color);
+            transform-origin: 100% 50%;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: -30px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .active-nav::after {
+            transform: scaleX(1);
+        }
+        
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+        
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), transparent);
+        }
+        
+        .tech-card {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+        }
+        
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes counter-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+        
+        .rotate {
+            animation: rotate 20s linear infinite;
+        }
+        
+        .counter-rotate {
+            animation: counter-rotate 15s linear infinite;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: var(--primary);
+            margin-left: 5px;
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .scanner-line {
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: scan 3s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        
+        .hexagon {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <!-- Decorative Gears -->
+    <div class="gear rotate" style="width: 200px; height: 200px; top: 20%; left: -100px; opacity: 0.2;"></div>
+    <div class="gear counter-rotate" style="width: 300px; height: 300px; bottom: 10%; right: -150px; opacity: 0.15;"></div>
+    <div class="gear rotate" style="width: 150px; height: 150px; top: 60%; left: 10%; opacity: 0.1;"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 tech-bg py-4 tech-border border-t-0 border-l-0 border-r-0">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="hexagon bg-primary-text p-2 mr-3">
+                    <h1 class="text-dark text-xl font-bold">SS</h1>
+                </div>
+                <h1 class="text-2xl font-bold primary-text">SHAILESH<span class="accent-text">.SIDHAPURA</span></h1>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="nav-link active-nav py-2 primary-text hover:text-white transition-colors">Home</a>
+                <a href="#about" class="nav-link py-2 primary-text hover:text-white transition-colors">About</a>
+                <a href="#experience" class="nav-link py-2 primary-text hover:text-white transition-colors">Experience</a>
+                <a href="#skills" class="nav-link py-2 primary-text hover:text-white transition-colors">Skills</a>
+                <a href="#education" class="nav-link py-2 primary-text hover:text-white transition-colors">Education</a>
+                <a href="#contact" class="nav-link py-2 primary-text hover:text-white transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden tech-bg absolute left-0 right-0 p-4 tech-border border-t-0">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="nav-link py-2 primary-text hover:text-white transition-colors">Home</a>
+                <a href="#about" class="nav-link py-2 primary-text hover:text-white transition-colors">About</a>
+                <a href="#experience" class="nav-link py-2 primary-text hover:text-white transition-colors">Experience</a>
+                <a href="#skills" class="nav-link py-2 primary-text hover:text-white transition-colors">Skills</a>
+                <a href="#education" class="nav-link py-2 primary-text hover:text-white transition-colors">Education</a>
+                <a href="#contact" class="nav-link py-2 primary-text hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen pt-24 pb-12 flex items-center relative overflow-hidden">
+        <div class="circuit-bg absolute inset-0 opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="relative">
+                        <div class="scanner-line"></div>
+                        <h2 class="text-xl md:text-2xl mb-2 primary-text">Hello, I'm</h2>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 glow-text">SHAILESH SIDHAPURA</h1>
+                        <div class="h-12">
+                            <h3 id="typing-text" class="text-xl md:text-3xl accent-text font-medium"></h3>
+                            <span class="typing-cursor"></span>
+                        </div>
+                        <p class="text-lg md:text-xl mt-6 mb-8 max-w-lg">
+                            Dynamic professional with expertise in recruitment, manufacturing supervision, and workflow optimization.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#contact" class="tech-button px-6 py-3 rounded-md">Contact Me</a>
+                            <a href="#experience" class="tech-button px-6 py-3 rounded-md">My Experience</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full tech-border p-1 relative overflow-hidden">
+                            <div class="w-full h-full rounded-full overflow-hidden">
+                                <svg viewBox="0 0 200 200" src="http://www.w3.org/2000/svg" class="w-full h-full">
+                                    <path fill="#00f0ff" d="M48.8,-59.2C62.9,-49.3,73.9,-33.9,76.8,-17.2C79.8,-0.5,74.7,17.4,65.4,32.5C56.1,47.6,42.5,59.8,26.8,66.8C11.1,73.8,-6.7,75.5,-23.9,70.7C-41.1,65.9,-57.7,54.5,-67.8,38.8C-77.9,23.1,-81.5,3.1,-77.2,-14.6C-72.9,-32.3,-60.7,-47.7,-45.9,-57.4C-31.1,-67.1,-15.5,-71.1,0.8,-72C17.1,-72.9,34.7,-69.1,48.8,-59.2Z" transform="translate(100 100)" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <img src="./image.png" class="w-32 h-32 text-dark">
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 border-4 border-primary rounded-full"></div>
+                        </div>
+                        <div class="absolute -top-4 -right-4 w-16 h-16 rotate bg-secondary rounded-full tech-border flex items-center justify-center">
+                            <i class="fas fa-cog text-primary text-2xl"></i>
+                        </div>
+                        <div class="absolute -bottom-2 -left-2 w-12 h-12 counter-rotate bg-secondary rounded-full tech-border flex items-center justify-center">
+                            <i class="fas fa-cog text-accent text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="circuit-bg absolute inset-0 opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-heading mx-auto">ABOUT <span class="accent-text">ME</span></h2>
+            <div class="tech-border tech-bg p-6 md:p-8 rounded-lg max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-full">
+                        <h3 class="text-2xl font-bold mb-4 primary-text">PROFESSIONAL SUMMARY</h3>
+                        <p class="mb-6 text-lg">
+                            Dynamic and detail-oriented professional with a proven track record in recruitment, manufacturing 
+                            supervision, and workflow optimization. Experienced in bench sales, client relations, and production 
+                            management, delivering measurable improvements in efficiency and client satisfaction. Adept at team 
+                            leadership, problem-solving, and communication, with technical proficiency in Microsoft Excel, Power BI, 
+                            and Tally Prime. Holds a B.Com degree and CCC certification, showcasing a solid foundation in business 
+                            operations and computer applications.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                            <div class="tech-border p-4 rounded-lg tech-bg tech-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-3">
+                                        <i class="fas fa-envelope text-dark"></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold">Email</h4>
+                                </div>
+                                <p>shaileshsidhhapura@gmail.com</p>
+                            </div>
+                            <div class="tech-border p-4 rounded-lg tech-bg tech-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-3">
+                                        <i class="fas fa-phone text-dark"></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold">Phone</h4>
+                                </div>
+                                <p>+91 8264163907</p>
+                            </div>
+                            <div class="tech-border p-4 rounded-lg tech-bg tech-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-3">
+                                        <i class="fas fa-map-marker-alt text-dark"></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold">Location</h4>
+                                </div>
+                                <p>Thaltej, Ahmedabad</p>
+                            </div>
+                            <div class="tech-border p-4 rounded-lg tech-bg tech-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-3">
+                                        <i class="fas fa-graduation-cap text-dark"></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold">Education</h4>
+                                </div>
+                                <p>B.Com, BKNM University</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 relative">
+        <div class="circuit-bg absolute inset-0 opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-heading mx-auto">WORK <span class="accent-text">EXPERIENCE</span></h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline-item tech-border tech-bg p-6 rounded-lg tech-card">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold primary-text">Bench Sales Recruiter</h3>
+                        <div class="flex items-center mt-2 md:mt-0">
+                            <div class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm mr-3">Oct 2024 – Dec 2024</div>
+                            <div class="tech-border px-3 py-1 rounded-full text-sm primary-text">Career US Solutions</div>
+                        </div>
+                    </div>
+                    <p class="mb-4">Ahmedabad</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Marketed IT candidates on job boards (Dice, Monster, LinkedIn) and collaborated with vendors to secure job placements.</li>
+                        <li>Built and nurtured relationships with vendors and clients to ensure successful candidate placements.</li>
+                        <li>Negotiated terms and rates for bench candidates, aligning with client requirements and expectations.</li>
+                        <li>Coordinated interviews, assessed candidates' skills, and matched them with suitable job opportunities.</li>
+                        <li>Maintained detailed records of candidates, submissions, and follow-ups to streamline recruitment workflows.</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item tech-border tech-bg p-6 rounded-lg tech-card">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold primary-text">Supervisor, Management</h3>
+                        <div class="flex items-center mt-2 md:mt-0">
+                            <div class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm mr-3">Apr 2023 – Dec 2023</div>
+                            <div class="tech-border px-3 py-1 rounded-full text-sm primary-text">Shree Balvi Fabrication</div>
+                        </div>
+                    </div>
+                    <p class="mb-4">Rajkot</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Supervised the manufacturing and assembly of loading lifts, ensuring adherence to quality and safety standards.</li>
+                        <li>Directed a team of workers, assigned tasks, and ensured timely project completion.</li>
+                        <li>Developed and implemented efficient workflows, resulting in a 35% improvement in production timelines.</li>
+                        <li>Acted as the primary liaison with clients to understand requirements and deliver customized solutions.</li>
+                        <li>Monitored material usage, managed procurement, and maintained optimal stock levels to prevent production delays.</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item tech-border tech-bg p-6 rounded-lg tech-card">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold primary-text">Supervisor</h3>
+                        <div class="flex items-center mt-2 md:mt-0">
+                            <div class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm mr-3">Feb 2022 – Mar 2023</div>
+                            <div class="tech-border px-3 py-1 rounded-full text-sm primary-text">Rolex Rings</div>
+                        </div>
+                    </div>
+                    <p class="mb-4">Rajkot</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Supervised the manufacturing and assembly of loading lifts, ensuring adherence to quality and safety standards.</li>
+                        <li>Directed a team of workers, assigned tasks, and ensured timely project completion.</li>
+                        <li>Developed and implemented efficient workflows, resulting in a 35% improvement in production timelines.</li>
+                        <li>Acted as the primary liaison with clients to understand requirements and deliver customized solutions.</li>
+                        <li>Monitored material usage, managed procurement, and maintained optimal stock levels to prevent production delays.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="circuit-bg absolute inset-0 opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-heading mx-auto">TECHNICAL <span class="accent-text">SKILLS</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="tech-border tech-bg p-6 rounded-lg tech-card">
+                    <h3 class="text-xl font-bold mb-6 primary-text">Technical Tools</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Microsoft Excel</span>
+                                <span class="primary-text">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Microsoft Word</span>
+                                <span class="primary-text">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Tally Prime</span>
+                                <span class="primary-text">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Power BI</span>
+                                <span class="primary-text">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-border tech-bg p-6 rounded-lg tech-card">
+                    <h3 class="text-xl font-bold mb-6 primary-text">Project Management</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Team Leadership</span>
+                                <span class="primary-text">95%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Workflow Optimization</span>
+                                <span class="primary-text">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Time Management</span>
+                                <span class="primary-text">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-border tech-bg p-6 rounded-lg tech-card">
+                    <h3 class="text-xl font-bold mb-6 primary-text">Recruitment Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Bench Sales</span>
+                                <span class="primary-text">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Candidate Screening</span>
+                                <span class="primary-text">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Negotiation</span>
+                                <span class="primary-text">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Client Communication</span>
+                                <span class="primary-text">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-border tech-bg p-6 rounded-lg tech-card">
+                    <h3 class="text-xl font-bold mb-6 primary-text">Soft Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Communication</span>
+                                <span class="primary-text">95%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Problem-Solving</span>
+                                <span class="primary-text">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Relationship Building</span>
+                                <span class="primary-text">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 relative">
+        <div class="circuit-bg absolute inset-0 opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-heading mx-auto">EDUCATION & <span class="accent-text">CERTIFICATIONS</span></h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="tech-border tech-bg p-6 rounded-lg tech-card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-graduation-cap text-dark text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold primary-text">Bachelor of Commerce</h3>
+                        </div>
+                        <p class="mb-2">BKNM University, Junagadh</p>
+                        <p class="text-sm accent-text mb-4">May 2020 – Apr 2023</p>
+                        <div class="tech-border p-3 rounded-md bg-secondary/50 mt-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-award text-accent mr-2"></i>
+                                <p>Completed with distinction</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-border tech-bg p-6 rounded-lg tech-card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-school text-dark text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold primary-text">12th Standard</h3>
+                        </div>
+                        <p class="mb-2">Parishram Shala Sankul, Madhavpur Ghed</p>
+                        <p class="text-sm accent-text mb-4">2018 - 2020</p>
+                        <div class="tech-border p-3 rounded-md bg-secondary/50 mt-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-book text-accent mr-2"></i>
+                                <p>Completed with good academic standing</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-border tech-bg p-6 rounded-lg tech-card md:col-span-2">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-certificate text-dark text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold primary-text">Certifications</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="tech-border p-4 rounded-md bg-secondary/50">
+                                <div class="flex items-center">
+                                    <i class="fas fa-laptop-code text-accent mr-3 text-xl"></i>
+                                    <div>
+                                        <h4 class="font-semibold">CCC (Course on Computer Concepts)</h4>
+                                        <p class="text-sm">Comprehensive computer literacy certification</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="circuit-bg absolute inset-0 opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-heading mx-auto">CONTACT <span class="accent-text">ME</span></h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="tech-border tech-bg p-6 rounded-lg tech-card flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-4">
+                            <i class="fas fa-envelope text-dark text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 primary-text">Email</h3>
+                        <p>shaileshsidhhapura@gmail.com</p>
+                        <a href="mailto:shaileshsidhhapura@gmail.com" class="tech-button mt-4 px-4 py-2 rounded-md text-sm">Send Email</a>
+                    </div>
+                    
+                    <div class="tech-border tech-bg p-6 rounded-lg tech-card flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-4">
+                            <i class="fas fa-phone text-dark text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 primary-text">Phone</h3>
+                        <p>+91 8264163907</p>
+                        <a href="tel:+918264163907" class="tech-button mt-4 px-4 py-2 rounded-md text-sm">Call Me</a>
+                    </div>
+                    
+                    <div class="tech-border tech-bg p-6 rounded-lg tech-card flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-4">
+                            <i class="fas fa-map-marker-alt text-dark text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 primary-text">Location</h3>
+                        <p>Thaltej, Ahmedabad</p>
+                        <a href="https://maps.google.com/?q=Thaltej,Ahmedabad" target="_blank" class="tech-button mt-4 px-4 py-2 rounded-md text-sm">View on Map</a>
+                    </div>
+                </div>
+                
+                <div class="tech-border tech-bg p-6 md:p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-6 primary-text text-center">Send Me a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2">Name</label>
+                                <input type="text" id="name" class="w-full bg-dark tech-border p-3 rounded-md focus:border-primary focus:outline-none text-[#001f3f] caret-[#001f3f]" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2">Email</label>
+                                <input type="email" id="email" class="w-full bg-dark tech-border p-3 rounded-md focus:border-primary focus:outline-none text-[#001f3f] caret-[#001f3f]" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full bg-dark tech-border p-3 rounded-md focus:border-primary focus:outline-none text-[#001f3f] caret-[#001f3f]" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full bg-dark tech-border p-3 rounded-md focus:border-primary focus:outline-none text-[#001f3f] caret-[#001f3f]" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="tech-button px-8 py-3 rounded-md">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 tech-bg tech-border border-b-0 border-l-0 border-r-0">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-xl font-bold primary-text">SHAILESH<span class="accent-text">.SIDHAPURA</span></h2>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full tech-border flex items-center justify-center hover:bg-primary hover:text-dark transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full tech-border flex items-center justify-center hover:bg-primary hover:text-dark transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full tech-border flex items-center justify-center hover:bg-primary hover:text-dark transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full tech-border flex items-center justify-center hover:bg-primary hover:text-dark transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 text-center">
+                <p>&copy; 2024 Shailesh Sidhapura. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particles.js -->
+	<script type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+	</script>
+	<script type="text/javascript">
+	   (function(){
+		  emailjs.init({
+			publicKey: "7IYr5uVN8cmC0AGlW",
+		  });
+	   })();
+	</script>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Typing effect
+        const typingText = document.getElementById('typing-text');
+        const texts = [
+            "Bench Sales Recruiter",
+            "Manufacturing Supervisor",
+            "Team Leader",
+            "Workflow Optimizer"
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingDelay = 100;
+        
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typingDelay = 50;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typingDelay = 100;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                typingDelay = 1000;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typingDelay = 500;
+            }
+            
+            setTimeout(type, typingDelay);
+        }
+        
+        // Start typing effect
+        setTimeout(type, 1000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active-nav');
+                    });
+                    this.classList.add('active-nav');
+                }
+            });
+        });
+        
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00f0ff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00f0ff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+        
+        // Active navigation based on scroll position
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active-nav');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active-nav');
+                        }
+                    });
+                }
+            });
+        });
+       
+  
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+			const templateParams = {
+			  from_name: name,
+			  from_email: email,
+			  subject: subject,
+			  message: message
+			};
+			emailjs.send("service_01yjjf4","template_tjsv2uh", templateParams)
+			  .then(function (response) {
+				alert('Thank you for your message, ' + name + '! I\'ll get back to you soon.');
+				contactForm.reset();
+			  }, function (error) {
+				console.error(error);
+				alert('Failed to send message. Please try again later.');
+			  });            
+            // Reset form
+            contactForm.reset();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;
+			if(b){var d=b.createElement('script');
+			d.innerHTML="window.__CF$cv$params={r:'93a59f1bf5f1032c',t:'MTc0NjMzNjc4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+			b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');
+			a.height=1;
+			a.width=1;
+			a.style.position='absolute';
+			a.style.top=0;
+			a.style.left=0;
+			a.style.border='none';
+			a.style.visibility='hidden';
+			document.body.appendChild(a);
+			if('loading'!==document.readyState)c();
+			else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);
+			else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
